@@ -9,14 +9,14 @@ export default function Home() {
       <h1>Home</h1>
       <button
         type="button"
-        onClick={() => router.push("/auth/login")}
+        onClick={() => router.push("http://localhost:3000/auth/login")}
         className="border-2 p-2"
       >
         Login
       </button>
       <button
         type="button"
-        onClick={() => router.push("/auth/signup")}
+        onClick={() => router.push("http://localhost:3000/auth/signup")}
         className="border-2 p-2"
       >
         Signup
