@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
 
 export default function LoginForm() {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -13,13 +13,13 @@ export default function LoginForm() {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const name = formData.get("username");
+      const username = formData.get("username");
       const password = formData.get("password");
 
-      const response = await fetch("http://localhost:3000/api/users/login", {
+      const response = await fetch("http://localhost:5000/api/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
@@ -27,9 +27,10 @@ export default function LoginForm() {
       }
 
       if (response.ok) {
-        router.push("/profile");
+        router.push("/dashboard");
       } else {
         // Handle Error
+        throw new Error("Failed to redirect!");
       }
     } catch (err: any) {
       setError(err.message);
@@ -39,29 +40,31 @@ export default function LoginForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleLoginSubmit}>
+    <div className="mt-10 flex flex-col justify-center items-center">
+      <form onSubmit={handleLoginSubmit} className="flex flex-col ">
         <h1>Login</h1>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           placeholder="username"
           required
-          className="text-black"
+          className="text-black indent-2"
         />
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
           placeholder="password"
           required
-          className="text-black"
+          className="text-black indent-2"
         />
-        <button type="submit" disabled={isLoading}>
+        <button type="submit" disabled={isLoading} className="border p-2 mt-2">
           {isLoading ? "Logging In..." : "Login"}
         </button>
         {error && <p>{error}</p>}
       </form>
-      <Link href={"http://localhost:3000/auth/signup"}>
+      <Link href={"http://localhost:3000/auth/signup"} className="mt-10">
         <button>Go to Signup</button>
       </Link>
     </div>
