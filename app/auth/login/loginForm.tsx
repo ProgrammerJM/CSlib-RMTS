@@ -23,7 +23,7 @@ export default function LoginForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to login!");
+        throw new Error("Failed to login! Please check your credentials.");
       }
 
       if (response.ok) {
