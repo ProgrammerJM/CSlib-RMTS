@@ -5,9 +5,12 @@ const Header = () => {
   return (
     <div className="flex max-w-6xl mx-20 my-10  md:flex-row justify-between ">
       <div className="flex flex-col">
-        <h1 className="font-semibold text-xl dark:text-white text-black">
+        <Link
+          href={"/dashboard"}
+          className="font-semibold text-xl dark:text-white text-black"
+        >
           CSLIB RMTS
-        </h1>
+        </Link>
       </div>
       <div className="space-x-4 flex flex-row items-center">
         <Link
