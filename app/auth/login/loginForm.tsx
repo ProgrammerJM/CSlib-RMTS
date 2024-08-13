@@ -23,7 +23,7 @@ export default function LoginForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to login! Please check your credentials.");
+        throw new Error("Failed to login!");
       }
 
       if (response.ok) {
@@ -49,7 +49,7 @@ export default function LoginForm() {
           name="username"
           placeholder="username"
           required
-          className="text-black indent-2"
+          className="text-black indent-2 max-w-auto"
         />
         <label htmlFor="password">Password</label>
         <input
@@ -57,12 +57,18 @@ export default function LoginForm() {
           name="password"
           placeholder="password"
           required
-          className="text-black indent-2"
+          className="text-black indent-2 max-w-auto"
         />
-        <button type="submit" disabled={isLoading} className="border p-2 mt-2">
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="border p-2 mt-2 max-w-auto"
+        >
           {isLoading ? "Logging In..." : "Login"}
         </button>
-        {error && <p>{error}</p>}
+        {error && (
+          <p className="text-red-500 text-wrap whitespace-pre-wrap">{error}</p>
+        )}
       </form>
       <Link href={"http://localhost:3000/auth/signup"} className="mt-10">
         <button>Go to Signup</button>

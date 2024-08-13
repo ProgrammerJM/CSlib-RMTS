@@ -24,7 +24,7 @@ function SignUpForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to signup! Please check your credentials.");
+        throw new Error("Failed to signup!");
       }
 
       if (response.ok) {
