@@ -46,7 +46,7 @@ const RequestTable: React.FC<RequestTableProps> = ({
       <TableBody>
         {requests.length > 0 ? (
           requests.map((request) => (
-            <TableRow key={request.updated_by}>
+            <TableRow key={request.id}>
               <TableCell>{request.status}</TableCell>
               <TableCell>{request.date_received}</TableCell>
               <TableCell>{request.book_request_sources}</TableCell>
