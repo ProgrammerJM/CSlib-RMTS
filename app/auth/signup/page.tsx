@@ -1,5 +1,5 @@
 import React from "react";
-import SignUpForm from "./signUpForm";
+import SignUpForm from "../../../components/SignUpForm";
 
 function Signup() {
   return <SignUpForm />;
