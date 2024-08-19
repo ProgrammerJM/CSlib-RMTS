@@ -10,7 +10,7 @@ interface getRequestState {
 }
 
 export default function GetRequest(): getRequestState {
-  const [requests, setBooks] = useState<BookRequest[] | null>(null);
+  const [requests, setRequests] = useState<BookRequest[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function GetRequest(): getRequestState {
           throw new Error("Failed to Fetch Books");
         }
         const result: BookRequest[] = await response.json();
-        setBooks(result);
+        setRequests(result);
       } catch (err: any) {
         console.error(err.message);
         setError(err.message);
