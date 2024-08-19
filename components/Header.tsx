@@ -9,7 +9,7 @@ const Header = () => {
           href={"/dashboard"}
           className="font-semibold text-xl dark:text-white text-black"
         >
-          CSLIB RMTS
+          Library RMTS
         </Link>
       </div>
       <div className="space-x-4 flex flex-row items-center">
