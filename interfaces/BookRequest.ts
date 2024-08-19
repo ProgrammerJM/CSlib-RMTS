@@ -1,4 +1,5 @@
 export const initialFormData: BookRequest = {
+  id: 0,
   status: "",
   date_received: new Date().toISOString().split("T")[0],
   book_request_sources: "",
@@ -17,6 +18,7 @@ export const initialFormData: BookRequest = {
 };
 
 export interface BookRequest {
+  id: number;
   status: string;
   date_received: string;
   book_request_sources: string;
