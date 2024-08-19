@@ -11,7 +11,7 @@ export default function Layout({
   return (
     <>
       <Header />
-      <div className="flex">
+      <div className="flex flex-col">
         <section className="flex-shrink-0">
           <Navbar />
         </section>

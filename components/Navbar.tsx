@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <nav className="flex flex-col pl-20">
+    <nav className="flex pl-20 justify-evenly">
       <Link href={"/requests"} className="">
         Requests
       </Link>
